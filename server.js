@@ -19,7 +19,10 @@ const io = new Server(server)
 io.on('connection', socket => {
 
     // Welcome current user
-    socket.emit('welcome', 'Welcome To The Chat')
+    socket.emit('bot message', 'Welcome To The Chat')
+
+    //  Broadcast to everyone except the connected user
+    socket.broadcast.emit('bot message', 'A New User Connected')
 
 
 
@@ -29,7 +32,7 @@ io.on('connection', socket => {
 
 
     socket.on('disconnect', () => {
-        console.log('A User Disconnected')
+        io.emit('bot message', 'A User left the chat')
     })
 
 

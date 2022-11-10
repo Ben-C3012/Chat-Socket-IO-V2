@@ -31,7 +31,7 @@ socket.on('chat message', (msg) => {
 
 })
 
-socket.on('welcome', (msg) => {
+socket.on('bot message', (msg) => {
     const bluePrint =
         ` <div class="message">
 <p class="meta">Bot<span></span></p>
@@ -41,7 +41,6 @@ socket.on('welcome', (msg) => {
 </div>`
 
     messageContainer.insertAdjacentHTML('beforeend', bluePrint)
-
 
 })
 
