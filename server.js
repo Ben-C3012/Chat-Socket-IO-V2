@@ -17,7 +17,10 @@ const io = new Server(server)
 
 // Socket.io connection + Events 
 io.on('connection', socket => {
-    console.log('A User Connected')
+
+    // Welcome current user
+    socket.emit('welcome', 'Welcome To The Chat')
+
 
 
     socket.on('chat message', message => {

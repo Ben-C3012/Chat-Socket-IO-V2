@@ -18,8 +18,6 @@ form.addEventListener('submit', (event) => {
 
 socket.on('chat message', (msg) => {
 
-    console.log(messageContainer)
-
     const bluePrint =
         ` <div class="message">
     <p class="meta">Mary <span>9:15pm</span></p>
@@ -29,8 +27,22 @@ socket.on('chat message', (msg) => {
 </div>`
 
 
-     messageContainer.insertAdjacentHTML('beforeend', bluePrint)
-     
+    messageContainer.insertAdjacentHTML('beforeend', bluePrint)
+
+})
+
+socket.on('welcome', (msg) => {
+    const bluePrint =
+        ` <div class="message">
+<p class="meta">Bot<span></span></p>
+<p class="text">
+     ${msg}
+</p>
+</div>`
+
+    messageContainer.insertAdjacentHTML('beforeend', bluePrint)
+
+
 })
 
 
