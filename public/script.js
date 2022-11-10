@@ -10,39 +10,36 @@ form.addEventListener('submit', (event) => {
     event.preventDefault()
     let message = input.value
     if (message) {
+        // Emit the message to the server
         socket.emit('chat message', message)
         input.value = ''
+        input.focus()
     }
 })
 
 
 socket.on('chat message', (msg) => {
-
-    const bluePrint =
-        ` <div class="message">
-    <p class="meta">Mary <span>9:15pm</span></p>
-    <p class="text">
-         lorem ipsum
-    </p>
-</div>`
-
-
-    messageContainer.insertAdjacentHTML('beforeend', bluePrint)
-
+    outputMessage(msg)
+    messageContainer.scrollTop = messageContainer.scrollHeight
 })
 
 socket.on('bot message', (msg) => {
+    outputMessage(msg)
+    messageContainer.scrollTop = messageContainer.scrollHeight
+})
+
+
+function outputMessage(message) {
     const bluePrint =
         ` <div class="message">
-<p class="meta">Bot<span></span></p>
-<p class="text">
-     ${msg}
-</p>
-</div>`
+        <p class="meta">User<span>9:43</span></p>
+        <p class="text">
+           ${message}
+        </p>
+        </div>`
 
-    messageContainer.insertAdjacentHTML('beforeend', bluePrint)
-
-})
+    messageContainer.innerHTML += bluePrint
+}
 
 
 

@@ -18,10 +18,10 @@ const io = new Server(server)
 // Socket.io connection + Events 
 io.on('connection', socket => {
 
-    // Welcome current user
+    // Welcome current user - Msg from server
     socket.emit('bot message', 'Welcome To The Chat')
 
-    //  Broadcast to everyone except the connected user
+    //  Broadcast to everyone except the connected user - msg from server
     socket.broadcast.emit('bot message', 'A New User Connected')
 
 
