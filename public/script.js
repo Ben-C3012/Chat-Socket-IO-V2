@@ -1,6 +1,5 @@
 const socket = io();
 
-
 // UI Elements 
 const messageContainer = document.querySelector('.chat-messages')
 const form = document.getElementById('chat-form')
@@ -15,7 +14,6 @@ const { username, room } = params
 
 // Join Chatroom 
 socket.emit('joinRoom', { username, room })
-
 
 form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -34,7 +32,6 @@ socket.on('roomUsers', ({ room, users }) => {
     outputUsers(users)
 })
 
-
 socket.on('chat message', (msg) => {
     outputMessage(msg)
     messageContainer.scrollTop = messageContainer.scrollHeight
@@ -44,7 +41,6 @@ socket.on('bot message', (msg) => {
     outputMessage(msg)
     messageContainer.scrollTop = messageContainer.scrollHeight
 })
-
 
 function outputMessage(message) {
     const bluePrint =
@@ -58,9 +54,6 @@ function outputMessage(message) {
     messageContainer.innerHTML += bluePrint
 }
 
-
-
-
 // Add room name to DOM 
 function outputRoomName(room) {
      roomName.innerText = room
@@ -72,9 +65,6 @@ function outputUsers(users) {
       ${users.map(user => `<li>${user.username}</li>`).join('')}
     `
 }
-
-
-
 
 // Leave Room 
 document.getElementById('leave-btn').addEventListener('click', () => {
