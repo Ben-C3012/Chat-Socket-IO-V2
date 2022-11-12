@@ -6,11 +6,9 @@ const path = require('path')
 const formatMessage = require('./utils/messages')
 const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/users')
 
-
 // Serve files from static folder
 const filePath = path.join(__dirname, 'public')
 app.use(express.static(filePath))
-
 
 // Socket.io Intergation
 const { Server } = require('socket.io')
@@ -29,7 +27,7 @@ io.on('connection', socket => {
         socket.emit('bot message', formatMessage('Bot', 'Welcome To The Chat'))
 
         //  Broadcast to everyone except the connected user
-        socket.broadcast.to(user.room).emit('bot message', formatMessage('bot', `${user.username} has joined the chat`))
+        socket.broadcast.to(user.room).emit('bot message', formatMessage('Bot', `${user.username} has joined the chat`))
 
         // Send users and room info
         io.to(user.room).emit('roomUsers', {
@@ -37,35 +35,25 @@ io.on('connection', socket => {
             users: getRoomUsers(user.room)
         })
 
-
         // Listen For Chat Message
         socket.on('chat message', message => {
             const user = getCurrentUser(socket.id)
 
             io.emit('chat message', formatMessage(user.username, message))
         })
-
-
     })
 
     socket.on('disconnect', () => {
         const user = userLeave(socket.id)
         if (user) {
-            io.to(user.room).emit('bot message', formatMessage('Bot', `A ${user.username} left the chat`))
+            io.to(user.room).emit('bot message', formatMessage('Bot', `${user.username} left the chat`))
             io.to(user.room).emit('roomUsers', {
                 room: user.room,
                 users: getRoomUsers(user.room)
             })
-    
         }
     })
-
 })
-
-
-
-
-
 
 const PORT = 3000
 server.listen(PORT, () => {

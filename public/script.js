@@ -49,7 +49,7 @@ socket.on('bot message', (msg) => {
 function outputMessage(message) {
     const bluePrint =
         ` <div class="message">
-        <p class="meta">${message.username}<span>${message.time}</span></p>
+        <p class="meta">${message.username}<span> &nbsp; ${message.time}</span></p>
         <p class="text">
            ${message.text}
         </p>
