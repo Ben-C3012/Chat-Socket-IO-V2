@@ -27,6 +27,3 @@ localhost:3000 and start using the app.
 You can open multiple tabs, and each tab will be for each user.
 
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
