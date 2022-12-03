@@ -6,7 +6,7 @@ function formatMessage(username, text) {
     return {
         username,
         text,
-        time: `${hour} : ${minute}`
+        time: `${hour}:${minute}`
     }
 }
 
