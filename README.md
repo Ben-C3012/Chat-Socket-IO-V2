@@ -2,10 +2,11 @@
 
 - Make sure that you wait a few seconds until the Demo loads.
 - Open a few different tabs and see that different users can text each other. 
+-  Try to open multiple tabs on your browser, and see that it works with different users. Works on mobile as well.
+
 
 Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
 
-## Try to open multiple tabs on your browser, and see that it works with different users. Works on mobile as well.
 
 This makes Web Sockets 
 perfect for chats.
