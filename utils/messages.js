@@ -1,15 +1,12 @@
-const date = new Date()
-const hour = date.getHours().toString()
-const minute = date.getMinutes().toString()
+const dayjs = require('dayjs')
+let now = dayjs();
 
 function formatMessage(username, text) {
     return {
         username,
         text,
-        time: `${hour}:${minute}`
+        time: `${now.hour()}:${now.minute()}`
     }
 }
-
-
 
 module.exports = formatMessage
