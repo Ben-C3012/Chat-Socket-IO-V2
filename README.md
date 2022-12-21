@@ -1,8 +1,12 @@
-# Chat With WebSockets
+# Chat With WebSockets 
+
+- Make sure that you wait a few seconds until the Demo loads. 
+-  Try to open multiple tabs on your browser, and see that it works with different users
+-  Works on mobile as well.
+
 
 Socket.IO is a library that enables low-latency, bidirectional and event-based communication between a client and a server.
 
-## Try to open multiple tabs on your browser, and see that it works with different users. Works on mobile as well.
 
 This makes Web Sockets 
 perfect for chats.
@@ -10,7 +14,6 @@ perfect for chats.
 
 ## Installation
 
- 
 
 ```bash
 git clone https://github.com/Ben-C3012/Chat-Socket-IO-V2.git
