@@ -1,9 +1,12 @@
+var spacetime = require('spacetime')
+var d = spacetime.now('Asia/Jerusalem')
+
 
 function formatMessage(username, text) {
     return {
         username,
         text,
-        time: `${new Date().getHours()}:${new Date().getMinutes()}`
+        time: `${d.format('hour')}:${d.format('minute')}`
     }
 }
 
