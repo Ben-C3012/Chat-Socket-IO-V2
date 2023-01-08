@@ -1,11 +1,13 @@
 const dayjs = require('dayjs')
 let now = dayjs();
+const hour = now.hour();
+const minute = now.minute();
 
 function formatMessage(username, text) {
     return {
         username,
         text,
-        time: `${now.hour()}:${now.minute()}`
+        time: `${hour}:${minute}`
     }
 }
 
