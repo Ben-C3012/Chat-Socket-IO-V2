@@ -1,4 +1,3 @@
-var spacetime = require('spacetime')
 const moment = require('moment')
 
 function formatMessage(username, text) {
