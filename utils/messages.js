@@ -1,11 +1,11 @@
-const moment = require('moment')
 const axios = require('axios')
+var moment = require('moment-timezone');
 
 function formatMessage(username, text) {
     return {
         username,
         text,
-        time: moment().format('').slice(11, 16)  
+        time: moment().tz("Asia/Jerusalem").format('HH:mm')
     }
 }
 

@@ -41,10 +41,15 @@ socket.on('bot message', (msg) => {
     messageContainer.scrollTop = messageContainer.scrollHeight
 })
 
+const d = new Date()
+d.setHours(d.getHours() + 2)
+// d.toISOString().slice(11, 16)
+
 function outputMessage(message) {
     const bluePrint =
         ` <div class="message">
-        <p class="meta">${message.username}<span> &nbsp; ${message.time}</span></p>
+        <p class="meta">${message.username}<span> &nbsp; ${message.time
+        }</span></p>
         <p class="text">
            ${message.text}
         </p>
@@ -55,7 +60,7 @@ function outputMessage(message) {
 
 // Add room name to DOM 
 function outputRoomName(room) {
-     roomName.innerText = room
+    roomName.innerText = room
 }
 
 // Add Users to DOM 
